@@ -1,0 +1,11 @@
+<h1> Welcome to Airbnb </h1>
+
+<% if user_signed_in? %>
+	<%=current_user.name%>
+	<%=button_to "Logout", destroy_user_session_path, data: {turbo_method: :delete } %>
+<% else %>
+    <p>User not found.</p>
+	<%=link_to "Login", new_user_session_path %>
+<% end %>
+<br>
+<%= link_to 'Listings', listings_path(@listings)%>
