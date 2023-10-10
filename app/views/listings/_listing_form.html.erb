@@ -10,7 +10,7 @@
 	<%= f.label :rooms%>
 	<p><%= f.number_field :rooms%></p>
 	<%= f.label :price%>
-	<p><%= f.number_field :price%></p>
+	<p><%= f.number_field :price, in: 50..5000%></p>
 	<%= f.label :available%>
 	<%= f.check_box :available%>
 	<br>

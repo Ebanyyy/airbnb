@@ -1,14 +1,15 @@
 <h4>Title: <%= @listing.title %></h4>
 
 <p><%= @listing.property_type%></p>
-<p><%= @listing.location%></p>
+<p>Location: <%= @listing.location%></p>
 <p><%= @listing.description%></p>
-<p><%= @listing.rooms%></p>
-<p><%= @listing.price%></p>
-<p><%= @listing.available%></p>
+<p>Rooms: <%= @listing.rooms%></p>
+<p>RM <%= @listing.price%></p>
+<p>Availability: <%= @listing.available%></p>
 <br>
 
 <%if current_user == @listing.user %>
 	<%= link_to 'Edit', edit_listing_path(@listing)%>
 	<br>
-	<%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Delete listing?"}>
+	<%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Delete listing?"}%>
+<%end%>

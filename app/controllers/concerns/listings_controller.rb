@@ -30,7 +30,7 @@ class ListingsController < ApplicationController
 		@listing.update(post_params)
 
 		if @listing.save
-			redirect_to pages_path(@listing)
+			redirect_to listing_path(@listing)
 		else
 			render :edit 
 		end
@@ -38,7 +38,7 @@ class ListingsController < ApplicationController
 
 	def destroy
 		@listing.destroy
-		redirect_to pages_path(@listing)
+		redirect_to listings_path(@listings)
 	end
 
 	private
