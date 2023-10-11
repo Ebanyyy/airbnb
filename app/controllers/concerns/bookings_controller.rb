@@ -7,13 +7,10 @@ class BookingsController < ApplicationController
 
 	def create
 		@listing = Listing.find_by(id: params[:booking][:listing_id])
-
 		@booking = current_user.bookings.new(booking_params)
-
 		@booking.listing_id = @listing.id
 
 		if available_dates?(@booking.check_in, @booking.check_out, @listing)
-
 			if @booking.save
 				redirect_to booking_path(@booking), notice: "Booking success"
 			else

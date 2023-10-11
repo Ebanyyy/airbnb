@@ -31,6 +31,7 @@
 			<% @listing.reviews.each do |review|%>
 			<%= review.comment%>
 			<%= review.user.name%>
+			
 			<%review.created_at%>
 			<%end%>
 		</li>
