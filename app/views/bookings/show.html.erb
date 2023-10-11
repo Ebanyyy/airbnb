@@ -1,0 +1,9 @@
+<h3><%= @booking.listing.title%></h3>
+
+<p>Check-In: <%= @booking.check_in%></p>
+<p>Check-Out: <%= @booking.check_out%></p>
+
+<p>Duration: <%= @booking.duration%></p>
+<p>Total price: <%= @booking.total_price%></p>
+
+<%= link_to 'Listings', listings_path(@listings)%>

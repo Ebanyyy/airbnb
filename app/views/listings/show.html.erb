@@ -1,10 +1,17 @@
-<h4>Title: <%= @listing.title %></h4>
+<h2>Title: <%= @listing.title %></h2>
 
-<p><%= @listing.property_type%></p>
+<p>Property type: <%= @listing.property_type%></p>
+
 <p>Location: <%= @listing.location%></p>
-<p><%= @listing.description%></p>
+
 <p>Rooms: <%= @listing.rooms%></p>
-<p>RM <%= @listing.price%></p>
+
+<p>Capacity: <%= @listing.capacity%></p>
+
+<p>Description: <%= @listing.description%></p>
+
+<p>Price: RM <%= @listing.price%></p>
+
 <p>Availability: <%= @listing.available%></p>
 <br>
 
@@ -13,3 +20,23 @@
 	<br>
 	<%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Delete listing?"}%>
 <%end%>
+
+	<p><%= link_to 'Add booking', new_booking_path(listing_id: @listing.id)%></p>
+
+<h4>Reviews</h4>
+
+<%if @listing.reviews.any?%>
+	<ul>
+		<li>
+			<% @listing.reviews.each do |review|%>
+			<%= review.comment%>
+			<%= review.user.name%>
+			<%review.created_at%>
+			<%end%>
+		</li>
+	</ul>
+<%else%>
+	No reviews.
+<%end%>
+
+<%= link_to 'Make review', new_review_path(listing_id: @listing.id)%>

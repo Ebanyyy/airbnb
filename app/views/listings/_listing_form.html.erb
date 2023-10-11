@@ -1,16 +1,26 @@
 <%= form_with model: @listing do |f| %>		
+
 	<%= f.label :title%>
 	<p><%= f.text_field :title%></p>
+
 	<%= f.label :property_type%>
-	<p><%= f.text_field :property_type, multiple: true %></p>
+	<p><%= f.text_field :property_type%></p>
+
 	<%= f.label :location%>
 	<p><%= f.text_field :location%></p>
-	<%= f.label :description%>
-	<p><%= f.text_field :description%></p>
+
 	<%= f.label :rooms%>
 	<p><%= f.number_field :rooms%></p>
+
+	<%= f.label :capacity%>
+	<p><%= f.number_field :capacity%></p>
+
+	<%= f.label :description%>
+	<p><%= f.text_field :description%></p>
+
 	<%= f.label :price%>
-	<p><%= f.number_field :price, in: 50..5000%></p>
+	<p><%= f.text_field :price%></p>
+
 	<%= f.label :available%>
 	<%= f.check_box :available%>
 	<br>

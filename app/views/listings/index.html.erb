@@ -1,6 +1,6 @@
 <% if @listings.any? %>
 	<% @listings.each do |listing| %>
-		<%= lisk_to listing_path(listing) do %>
+		<%= link_to listing_path(listing) do %>
 		<%= listing.title %>
 		<%end%>
 	<%end%>

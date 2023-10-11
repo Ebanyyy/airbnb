@@ -1,4 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :user
-  has_many :users, dependent: :destroy
+  has_many :bookings
+
+  has_many :reviews, as: :reviewable
 end

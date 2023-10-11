@@ -20,7 +20,6 @@ class ListingsController < ApplicationController
 	end
 
 	def show
-		@listings = current_user.listings.new
 	end
 
 	def edit
@@ -47,6 +46,6 @@ class ListingsController < ApplicationController
 		end
 
 		def post_params
-			params.require(:listing).permit(:title, :property_type, :location, :rooms, :price, :available)
+			params.require(:listing).permit(:title, :property_type, :location, :rooms, :capacity, :description, :price, :available)
 		end
 end
