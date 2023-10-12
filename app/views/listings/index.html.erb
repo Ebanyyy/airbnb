@@ -1,11 +1,19 @@
+<h1>Airbnb Listing</h1>
+
 <% if @listings.any? %>
 	<% @listings.each do |listing| %>
 		<%= link_to listing_path(listing) do %>
-		<%= listing.title %>
+		<br>
+		<li><%= listing.title %></li>
 		<%end%>
 	<%end%>
 <%else%>
 	<p>No listings. </p>
 <%end%>
+<br><br>
 
-<%= link_to 'New Listing', new_listing_path(@listings)%>
+<button><%= link_to "Add Listing", new_listing_path%></button>
+<br><br>
+
+<%=button_to "Logout", destroy_user_session_path, method: :delete %>
+

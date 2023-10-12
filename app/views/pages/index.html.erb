@@ -1,4 +1,4 @@
-<h1> Welcome to Airbnb </h1>
+<h1> Welcome to Airbnb</h1>
 
 <% if user_signed_in? %>
 	<%=current_user.name%>
@@ -7,5 +7,22 @@
     <p>User not found.</p>
 	<%=link_to "Login", new_user_session_path %>
 <% end %>
-<br>
-<%= link_to 'Listings', listings_path(@listings)%>
+<br><br>
+
+<%= form_tag(root_path, method: :get) do%>
+	<%= text_field_tag :location, params[:location], placeholder: 'Enter location'%>
+	<%= date_field_tag :check_in, params[:check_in] %>
+	<%= date_field_tag :check_out, params[:check_out] %>
+	<%= submit_tag 'Search' %>
+<%end%>
+<br><br>
+<% if @listings.any? %>
+	<% @listings.each do |listing| %>
+		<%= link_to listing_path(listing) do %>
+		<br>
+		<li><%= listing.title %></li>
+		<%end%>
+	<%end%>
+<%else%>
+	<p>No listings. </p>
+<%end%>

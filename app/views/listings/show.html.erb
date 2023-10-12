@@ -19,9 +19,11 @@
 	<%= link_to 'Edit', edit_listing_path(@listing)%>
 	<br>
 	<%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Delete listing?"}%>
-<%end%>
-
+<%else%>
 	<p><%= link_to 'Add booking', new_booking_path(listing_id: @listing.id)%></p>
+	<p><%= link_to 'Make review', new_review_path(listing_id: @listing.id)%></p>
+
+<%end%>
 
 <h4>Reviews</h4>
 
@@ -37,7 +39,7 @@
 		</li>
 	</ul>
 <%else%>
-	No reviews.
+	No review.
 <%end%>
-
-<%= link_to 'Make review', new_review_path(listing_id: @listing.id)%>
+<br>
+<button><%= link_to 'Listing', listings_path(@listings)%></button>
