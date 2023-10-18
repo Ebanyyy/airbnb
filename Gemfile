@@ -35,4 +35,6 @@ group :development do
   gem 'capistrano-rails-tail-log'
   gem 'capistrano-rails-db'
   gem 'capistrano-rake', require: false
+
+  gem 'net-ssh', "7.0.0.beta1"
 end
