@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+
 		before_action :set_post, only: [:show, :edit, :update, :destroy]
 	
 	def index
@@ -37,7 +38,7 @@ class ListingsController < ApplicationController
 
 	def destroy
 		@listing.destroy
-		redirect_to listings_path(@listings)
+		redirect_to root_path
 	end
 
 	private
@@ -46,6 +47,6 @@ class ListingsController < ApplicationController
 		end
 
 		def post_params
-			params.require(:listing).permit(:title, :property_type, :location, :rooms, :capacity, :description, :price, :available)
+			params.require(:listing).permit(:title, :property_type, :location, :rooms, :capacity, :description, :price, :available, photos: [])
 		end
 end

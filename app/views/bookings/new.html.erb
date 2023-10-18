@@ -3,7 +3,6 @@
 <%= form_with model: @booking do |f| %>
 	<%= f.date_field :check_in%>
 	<%= f.date_field :check_out%>
-
 	<%= f.hidden_field :listing_id, value: @listing.id%>
 	<%= f.submit 'Book' %>
 <%end%>

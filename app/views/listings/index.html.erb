@@ -12,8 +12,5 @@
 <%end%>
 <br><br>
 
-<button><%= link_to "Add Listing", new_listing_path%></button>
+<button><%= link_to "Add Listing", new_listing_path(@listings)%></button>
 <br><br>
-
-<%=button_to "Logout", destroy_user_session_path, method: :delete %>
-

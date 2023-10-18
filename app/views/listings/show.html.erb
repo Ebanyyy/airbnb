@@ -1,4 +1,15 @@
 <h2>Title: <%= @listing.title %></h2>
+<br>
+<button><%= link_to 'Back to Listing', listings_path(@listings)%></button>
+
+<center><% if @listing.photos.attached? %>
+	<% @listing.photos.each do |photo|%>
+		<%= image_tag photo %>
+	<% end %>
+<% else %>
+	<p>No photo found</p>
+<% end %>
+
 
 <p>Property type: <%= @listing.property_type%></p>
 
@@ -15,31 +26,32 @@
 <p>Availability: <%= @listing.available%></p>
 <br>
 
+
 <%if current_user == @listing.user %>
 	<%= link_to 'Edit', edit_listing_path(@listing)%>
 	<br>
-	<%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Delete listing?"}%>
+	<%#= button_to "Delete1", listing_path(@listing), method: :delete%>
+	<%= button_to 'Delete', listing_path(@listing), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Delete Listing?" }%>
 <%else%>
 	<p><%= link_to 'Add booking', new_booking_path(listing_id: @listing.id)%></p>
 	<p><%= link_to 'Make review', new_review_path(listing_id: @listing.id)%></p>
-
 <%end%>
 
 <h4>Reviews</h4>
-
 <%if @listing.reviews.any?%>
 	<ul>
+		<% @listing.reviews.each do |review|%>
 		<li>
-			<% @listing.reviews.each do |review|%>
 			<%= review.comment%>
-			<%= review.user.name%>
-			
-			<%review.created_at%>
-			<%end%>
+			<%= review.user.email%>
+			<%= review.created_at%>
+			<br>
 		</li>
+			<%end%>
 	</ul>
 <%else%>
 	No review.
 <%end%>
+</center>
+
 <br>
-<button><%= link_to 'Listing', listings_path(@listings)%></button>
